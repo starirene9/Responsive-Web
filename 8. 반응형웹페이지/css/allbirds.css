@@ -1,0 +1,821 @@
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+
+/* reset */
+/* 색상 등록 */
+:root {
+    --primary-black: #212a2f;
+    --primary-white: #ffffff;
+    --side-bg: #f8f7f5;
+    --text-gray-color: #999;
+    /* --primary-margin: 24px; */
+}
+
+/* 주로 쓰는 글 등록 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--primary-black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+form,
+fieldset,
+blockquote,
+address,
+table,
+thead,
+tbody,
+tfoot,
+tr,
+td,
+caption {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 초기셋업 */
+/* 파일과 리셋 */
+/* 디자이너들이 쓰는 색을 변수로 등록 */
+
+/* 1. layout */
+
+.wrap {
+    width: 100%;
+}
+
+.ad {
+    height: 35px;
+    background-color: var(--primary-black);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    color: var(--primary-white);
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px 0;
+    height: 40px;
+}
+
+header {
+    background-color: var(--primary-white);
+    height: 60px;
+
+    position: fixed;
+    /* opacity: 0.5; */
+    top: 35px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* 늘어나는 것과 유사함 */
+}
+
+main {
+    margin-top: 95px;
+    /* 헤더 높이 만큼 줘야지 아래 글이 내려옴 안그러면 헤더 아래 같힘 */
+}
+
+aside {
+    background-color: var(--side-bg);
+}
+
+footer {
+    background-color: var(--primary-black);
+}
+
+/* 2. 타이포그라피 셋업  */
+
+.main-title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* 3. 버튼 셋업 */
+.btn {
+    border: none;
+    border-radius: 2px;
+    padding: 15px;
+    /* 상하에 15px */
+    min-width: 180px;
+    /* max-width: 125px; */
+
+    font-weight: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    text-transform: uppercase;
+}
+
+.btn.light {
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    /* line-height: 20px; */
+    height: 50px;
+}
+
+.btn.light:hover {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
+.btn.dark {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    height: 50px;
+}
+
+.btn.dark:hover {
+    background-color: var(--primary-white);
+    color: var(--primary-black);
+    box-sizing: border-box;
+    border: 2px solid var(--primary-black);
+}
+
+/* 4. 부품 셋업  */
+
+/* 5. 섹션 작업  */
+
+/* header */
+/* 스마트 폰의 영역 */
+header {
+    /* height: 42px; */
+    padding: 9px 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .main-menu {
+    order: 1
+}
+
+header .main-menu .toggle {
+    /* border: 1px solid blue; */
+    width: 22px;
+    height: 18px;
+    font-size: 0;
+    cursor: pointer;
+    background-image: url('../images/menu.svg');
+
+    border: none;
+}
+
+header .logo {
+    /* border: 1px solid red; */
+    width: 98px;
+    height: 31.13px;
+    font-size: 0;
+    background: url('../images/allbirds-logo.svg') no-repeat;
+    order: 2;
+}
+
+header .util-menu {
+    order: 3;
+}
+
+
+header .util-menu .cart {
+    /* border: 1px solid red; */
+    width: 24px;
+    height: 24px;
+    font-size: 0;
+    display: block;
+    background: url('../images/cart.svg') no-repeat;
+    cursor: pointer;
+    position: relative;
+
+}
+
+header .util-menu .cart a span {
+    font-size: 11px;
+    position: absolute;
+    font-weight: bold;
+    /* background-color: yellowgreen; */
+    transform: translate(60%, 0);
+    letter-spacing: 0;
+}
+
+header .main-menu ul,
+header .util-menu ul .gone {
+    display: none;
+}
+
+
+
+/* main */
+.visual {
+    height: calc(100vh - 95px);
+    /*  */
+    /* background-color: green; */
+    position: relative;
+}
+
+.visual picture img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+}
+
+.visual .text {
+    position: absolute;
+    left: 50%;
+    bottom: 65px;
+    transform: translate(-50%, 0);
+    /* x축, y축 : x 축으로 -50% 이동 즉 부모요소의 가로 중앙으로 이동 y는 0이여서 수직 이동 안함 */
+    width: 100%;
+    max-width: 1380px;
+    /* 1380이 오바됬을때 width 100% 자동 계산을 멈춰줘라 */
+    /* 이걸 넘기는 순간 margin 0 auto를 주면 중앙 정렬이 됨 */
+    padding: 0 24px;
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+}
+
+.visual .text h2 {
+    color: var(--primary-white);
+    margin-bottom: 12px;
+}
+
+.visual .text p {
+    color: var(--primary-white);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+}
+
+main .btns {
+    display: flex;
+    /* 인라인요소여서 간격을 빼주기 위해서~! */
+}
+
+main .btn.light:last-child {
+    margin-left: 12px;
+}
+
+
+/* main 부품 구간 */
+.product {
+    width: 80%;
+    /* border: 1px solid #000; */
+    max-width: 1284px;
+    margin: 0 auto;
+    padding: 60px 0;
+    box-sizing: border-box;
+}
+
+.product.collection h3 {
+    text-align: center;
+}
+
+.product h3 {
+    color: var(--primary-black);
+    line-height: 41.92px;
+    letter-spacing: 0.5px;
+    font-size: 24px;
+    margin-left: 24px;
+    margin-bottom: 34px;
+}
+
+.product ul {
+    display: flex;
+    justify-content: center;
+    max-width: 1380px;
+    /* border: 2px solid red; */
+    /* padding: 0 24px; */
+
+}
+
+.product ul li {
+    background: rgba(255, 255, 255, 0.00);
+    box-shadow: 0px 6px 24px 0px #D3D4D5;
+    /* border: 1px solid blue; */
+}
+
+.product ul li:nth-child(2),
+.product ul li:nth-child(3) {
+    display: none;
+}
+
+.product ul .center-li {
+    margin: 0 24px;
+}
+
+.product a {
+    /* border: 1px solid orange; */
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.product a .photo {
+    /* border: 1px solid orange; */
+    width: 396px;
+    height: 396px;
+    /* width: 100%; */
+}
+
+/* .product.collection a .desc {
+    padding: 18px 30px;
+} */
+
+.product.collection a .desc h5 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #D3D4D5;
+    padding-bottom: 10px;
+    margin-bottom: 12.03px;
+}
+
+
+.product.collection a .desc p {
+
+    font-size: 14px;
+    font-weight: 350;
+    letter-spacing: 0.4px;
+
+    /* 이미지는 백그라운드로 넣기 */
+    padding-left: 40px;
+    line-height: 30px;
+    /* border: 1px solid #000; */
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+
+.product.collection a .desc p.wind {
+    background-image: url("../images/icon_wind.png");
+}
+
+.product.collection a .desc p.cloud {
+    background-image: url("../images/Wool.jpg.svg");
+}
+
+.product.collection a .desc p.green {
+    background-image: url("../images/Tree.jpg.svg");
+}
+
+.product a .desc {
+    padding: 18px 18px;
+}
+
+.product a .desc h5 {
+    margin-bottom: 6.03px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0.5px;
+}
+
+.product a .desc p {
+    font-size: 16px;
+    font-weight: 350;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.5px;
+    width: 329px;
+}
+
+
+/* about 부품 */
+
+.about {
+    /* border: 1px solid #000; */
+    padding: 60px 0;
+}
+
+.about picture {
+    height: 338px;
+    display: block;
+    margin-bottom: 24px;
+}
+
+.about picture img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.about h3 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.about p {
+    text-align: center;
+    padding: 0 24px;
+    margin: 12px 0 24px
+}
+
+.about .btns {
+    display: flex;
+    justify-content: center;
+}
+
+.about .btns> :nth-child(2) {
+    margin-left: 24px
+}
+
+
+/* aside */
+aside {
+    background-color: var(--side-bg);
+    /* border: 1px solid #000; */
+    display: flex;
+    flex-direction: column;
+    padding: 48px 24px;
+    text-align: center;
+}
+
+aside .aside-text>* {
+    /* border: 1px solid #000; */
+    display: block;
+    letter-spacing: 0.5px;
+    margin: 0px 0px 18px;
+    line-height: 1.5;
+}
+
+
+aside .aside-text h4 {
+    margin-bottom: 30px;
+}
+
+aside .aside-text span {
+    font-weight: 400;
+    color: rgb(33, 42, 47);
+    margin-bottom: 24px;
+}
+
+aside .input-area {
+    /* border: 1px solid #000; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 27px;
+}
+
+aside .input-area input {
+    background-color: var(--primary-white);
+    border: none;
+    border-bottom: 2px solid #000;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+    padding: 12px;
+    background: var(--primary-white);
+}
+
+aside .input-area input::placeholder {
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: lightgray;
+    background: #FFF;
+    width: 562px;
+    height: 23.5px;
+}
+
+
+aside .policy {
+    color: rgb(77, 85, 89);
+    font-size: 14px;
+    font-weight: 350;
+    line-height: 18.2px;
+}
+
+/* footer */
+.inner {
+    /* border: 1px solid yellow; */
+    color: var(--primary-white);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 72px 24px 90px 24px;
+}
+
+.inner h6 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 19px;
+}
+
+footer .help,
+.shop,
+.company {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+}
+
+footer .help a,
+.shop a,
+.company a {
+    margin-bottom: 17px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+footer .help a:last-child,
+.shop a:last-child,
+.company a:last-child {
+    margin-bottom: 0;
+}
+
+.inner a {
+    text-decoration: none;
+    color: var(--primary-white);
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 350;
+    letter-spacing: 0.5px;
+}
+
+.footer_info {
+    /* border: 1px solid pink; */
+    padding-bottom: 48px;
+}
+
+.footer_info p {
+    font-size: 12px;
+    font-weight: 350;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+    ;
+}
+
+.footer_info .certified {
+    /* background-color: red; */
+    margin: 48px 0;
+}
+
+.footer_info .a-tags {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.footer_info .sns a {
+    width: 100%;
+    /* border: 1px solid red; */
+ 
+}
+
+.footer_info .country a {
+    /* border: 1px solid red; */
+    /* margin-right: 3px; */
+    width: 452px;
+
+}
+
+.footer_info .sns a:last-child,
+.footer_info .country a:last-child {
+    margin-right: 0;
+}
+
+.copyright {
+    /* border: 1px solid red; */
+    font-size: 12px;
+    font: 350px;
+    line-height: 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.copyright p {
+    margin-bottom: 36px;
+}
+
+
+/* 반응형은 모아서 써야 성능관리에 좋음 */
+@media screen and (min-width : 720px) {
+    .visual .text h2 {
+        font-size: 40px;
+    }
+
+    .product ul li:nth-child(2) {
+        display: block;
+    }
+
+    .product h3 {
+        font-size: 28px;
+    }
+
+    .about p {
+        margin: 18px 0 20px;
+    }
+
+    .about picture {
+        height: 432px;
+        margin-bottom: 36px;
+    }
+
+    .about h3 {
+        font-size: 28px;
+    }
+
+    aside .input-area {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    aside .input-area input {
+        width: 63.690476%;
+        box-sizing: border-box;
+        margin-right: 12px;
+    }
+
+    aside .input-area btn {
+        width: 104px;
+        min-width: auto;
+    }
+}
+
+@media screen and (min-width : 990px) {
+    .visual .text h2 {
+        font-size: 48px;
+    }
+
+    .product ul li:nth-child(3) {
+        display: block;
+    }
+
+    .product h3 {
+        font-size: 32px;
+    }
+
+    .about picture {
+        height: 542px;
+    }
+
+    .about h3 {
+        font-size: 32px;
+    }
+
+    .inner .footer_link {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        text-align: left;
+        /* border: 1px solid green; */
+        height: 240px;
+    }
+
+    .inner .footer_link>* {
+        width: 25%;
+    }
+
+
+    .footer_info {
+        display: flex;
+        /* border: 1px solid red; */
+     }
+
+    .footer_link,
+    .footer_info>*>* {
+        text-align: left;
+    }
+
+    .footer_info .sns {
+       width: 25%;
+       /* border: 1px solid green; */
+     
+    }
+
+     .footer_info .certified {
+        width: 25%;
+        /* border: 1px solid pink; */
+        align-items: first baseline;
+        margin-top: 0;
+     }
+     .footer_info .country {
+        width: 50%;
+        /* border: 1px solid blue; */
+     }
+
+
+}
+
+/* 1200px 이상의 영역 */
+@media screen and (min-width : 1200px) {
+    header {
+        height: 42px;
+        padding: 12px;
+    }
+
+    header .main-menu ul,
+    header .util-menu ul .gone {
+        display: block;
+    }
+
+    header .main-menu .toggle {
+        display: none;
+    }
+
+    header .main-menu {
+        flex: 2;
+    }
+
+    header .util-menu {
+        flex: 2;
+    }
+
+    header .main-menu ul {
+        display: flex;
+        /* border: 1px solid #000; */
+    }
+
+    header .util-menu ul {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: end;
+        /* border: 1px solid #000; */
+    }
+
+    header .main-menu ul li,
+    header .util-menu ul li {
+        line-height: 28.8;
+        margin-right: 40px;
+        /* border: 1px solid red; */
+        box-sizing: border-box;
+    }
+
+    header .main-menu ul li:last-child,
+    header .util-menu ul li:last-child {
+        margin-right: 0;
+    }
+
+    header .main-menu ul a,
+    header .util-menu ul a {
+        text-decoration: none;
+        color: var(--primary-black);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 1.7px;
+        display: block;
+    }
+
+    header .util-menu .cart a {
+        font-size: 0;
+        position: relative;
+    }
+
+    header .util-menu li.cart a span {
+        right: 11px;
+        bottom: 3px;
+
+    }
+
+}
